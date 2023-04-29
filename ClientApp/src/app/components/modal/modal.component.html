@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline" class="m-2">
+      <mat-label>Username</mat-label>
+      <input type="text" matInput [formControlName]="'username'">
+      <mat-error>The username is requierd</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="m-2">
+      <mat-label>First Name</mat-label>
+      <input type="text" matInput formControlName="firstName">
+      <!-- <mat-error>The firstName is requierd</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="m-2">
+      <mat-label>Last Name</mat-label>
+      <input type="text" matInput formControlName="lastName">
+      <!-- <mat-error>The username is requierd</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="m-2">
+      <mat-label>Age</mat-label>
+      <input type="number" matInput formControlName="age">
+      <!-- <mat-error>The username is requierd</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="m-2">
+      <mat-label>Career</mat-label>
+      <input type="text" matInput formControlName="career">
+      <!-- <mat-error>The username is requierd</mat-error> -->
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-raised-button cdkFocusInitial (click)="saveForm()" *ngIf="!data.student">Create</button>
+  <button mat-raised-button cdkFocusInitial (click)="saveForm()" *ngIf="data.student">Edit</button>
+</div>
